@@ -1,3 +1,5 @@
+# similar to q 64
+
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         dp = [[1 if i == 0 or j == 0 else 0 for j in range(n)] for i in range(m)]
