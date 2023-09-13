@@ -10,10 +10,10 @@ class Solution:
                 dict[num] = 1
         
         # descending order
-        minFrequency = sorted(dict.values(), reverse=True)[k-1]
+        kthFrequency = sorted(dict.values(), reverse=True)[k-1]
 
         for num in dict:
             frequency = dict[num]
-            if frequency >= minFrequency:
+            if frequency >= kthFrequency:
                 res.append(num)
         return res
