@@ -1,0 +1,47 @@
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        roman_map = {
+            1: 'I',
+            5: 'V', 4:'IV',
+            10: 'X', 9: 'IX',
+            50: 'L', 40:'XL',
+            100: 'C', 90: 'XC',
+            500:'D', 400: 'CD',
+            1000:'M', 900:'CM'
+        }
+        indexArr = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+
+        curr = num
+        index = 0
+        res = ''
+        while curr > 0:
+            roman = indexArr[index]
+            if curr >= roman:
+                res += roman_map[roman]
+                curr -= roman
+            else:
+                index += 1
+        return res
+
+
+
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        roman_map = {
+            1: 'I',
+            5: 'V', 4:'IV',
+            10: 'X', 9: 'IX',
+            50: 'L', 40:'XL',
+            100: 'C', 90: 'XC',
+            500:'D', 400: 'CD',
+            1000:'M', 900:'CM'
+        }
+        indexArr = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+
+        res = ''
+        curr = num
+        for n in indexArr:
+            while curr >= n:
+                curr -= n
+                res += roman_map[n]
+        return res
