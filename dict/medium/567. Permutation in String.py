@@ -1,4 +1,32 @@
-# dict string
+# dict string 
+
+
+
+# use counter to optimize
+
+class Solution:
+    def checkInclusion(self, s1: str, s2: str) -> bool:
+        n = len(s1)
+        n2 = len(s2)
+
+        if n > n2:
+            return False
+
+        counter = Counter(s1)
+
+        for i in range(n2 - n + 1):
+            tmp = s2[i:i+n]
+            counter2 = Counter(tmp)
+            flag = True
+            for k in counter:
+                if k not in counter2 or counter[k] != counter2[k]:
+                    flag = False
+            if flag is True:
+                return True
+        return False
+
+
+
 # not optimized
 
 class Solution:
@@ -33,27 +61,3 @@ class Solution:
                 return True
         return False
 
-
-# use counter to optimize
-
-class Solution:
-    def checkInclusion(self, s1: str, s2: str) -> bool:
-        n = len(s1)
-        n2 = len(s2)
-
-        if n > n2:
-            return False
-
-        counter = Counter(s1)
-
-        for i in range(n2 - n + 1):
-            tmp = s2[i:i+n]
-            counter2 = Counter(tmp)
-            print(counter, counter2)
-            flag = True
-            for k in counter:
-                if k not in counter2 or counter[k] != counter2[k]:
-                    flag = False
-            if flag is True:
-                return True
-        return False
