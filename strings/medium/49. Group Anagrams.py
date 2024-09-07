@@ -3,6 +3,7 @@ class Solution:
         d = {}
 
         for str in strs:
+            # convert list to string
             sorted_s = ''.join(sorted(str))
 
             if sorted_s not in d:
